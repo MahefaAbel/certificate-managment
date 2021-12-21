@@ -5,17 +5,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from 'src/SharedModule/shared.module';
+import { FormsModule } from '@angular/forms';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     SearchComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   bootstrap: [SearchComponent]
 })

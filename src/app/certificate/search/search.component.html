@@ -3,12 +3,14 @@
 <h1>Rechercher un certificat</h1>
 
 <label>Entrer un numero du certificat : </label>
-<input type="text" />
+<input type="text" [(ngModel)]="this.nomPerson" (ngModelChange)="this.onClick()"/>
 
-<div id="container">
+<!-- <div id="container" (click)="this.onClick()">
     <cm-button></cm-button>
-</div>
+</div> -->
 
-<span></span>
+<div>
+    <list-certificat [listPerson]="this.listPersonnResult"></list-certificat>
+</div>
 
 <cm-footer></cm-footer>
