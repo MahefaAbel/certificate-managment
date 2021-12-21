@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
   @Input()
-  public listPerson: Array<string>;
+  public listPerson: Array<any>;
 
   constructor() {
     this.listPerson = [];

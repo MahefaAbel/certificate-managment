@@ -1,16 +1,32 @@
 <cm-header></cm-header>
 
-<h1>Rechercher un certificat</h1>
+<div class="container">
 
-<label>Entrer un numero du certificat : </label>
-<input type="text" [(ngModel)]="this.nomPerson" (ngModelChange)="this.onClick()"/>
+    Search Component 
+    
+    <h1>Rechercher un certificat</h1>
 
-<!-- <div id="container" (click)="this.onClick()">
-    <cm-button></cm-button>
-</div> -->
+    <label>Entrer un numero du certificat : </label>
+    <input type="text" [(ngModel)]="this.nomPersonSearch" (ngModelChange)="this.onClick()"/>
 
-<div>
-    <list-certificat [listPerson]="this.listPersonnResult"></list-certificat>
+    <!-- <div id="container" (click)="this.onClick()">
+        <cm-button></cm-button>
+    </div> -->
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <list-certificat [listPerson]="this.listPersonnResult"></list-certificat>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <certificat-detail></certificat-detail>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 
 <cm-footer></cm-footer>

@@ -1,3 +1,14 @@
-<ul>
-    <li *ngFor="let item of this.listPerson"> {{ item }} </li>
-</ul>
+<div class="container">
+    List Component
+    <ul class="">
+        <li *ngFor="let item of this.listPerson" class="row"> 
+            
+            <span class="preview col"><img src="{{ item.download_url }}" /></span>
+            <div class="secondColumn col">
+                <span class="author row"> {{ item.author }} </span>
+                <span class="url row"> {{ item.url }} </span> 
+            </div>
+
+        </li>
+    </ul>
+</div>
