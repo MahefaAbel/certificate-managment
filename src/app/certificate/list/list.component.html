@@ -1,16 +1,23 @@
 <div class="container">
     <span class="componentName">List Component</span>
-    <ul>
-        <li *ngFor="let item of this.listPerson" class="row" (click)="onClick(item)">
-            <ng-template [ngIf]="true">
-                <span class="preview col">
+    <ul *ngIf="listPerson.length > 0; else msgErreur">
+        <li *ngFor="let item of this.listPerson" class="row" (click)="onClick(item)" 
+            [ngClass]="this.setClass(item.money)"
+        >
+        <!-- [ngStyle]="{'background-color': this.getColor(item.money) }" -->
+            <span class="preview col">
                     <!-- <img src="{{ item.urlPhoto }}" /> -->
-                </span>
-                <div class="secondColumn col">
-                    <span class="author row"> {{ item.name }} </span>
-                    <span class="url row"> {{ item.urlPhoto }} </span> 
-                </div>
-            </ng-template>
+            </span>
+            <div class="secondColumn col">
+                <span class="author row"> {{ item.name }} </span>
+                <span class="url row"> {{ item.urlPhoto }} </span> 
+            </div>
         </li>
     </ul>
+
+    <ng-template #msgErreur>
+        <div>
+            Ato zan a le message vida
+        </div>
+    </ng-template>
 </div>
