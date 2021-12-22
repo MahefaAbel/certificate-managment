@@ -7,21 +7,24 @@
     <h1>Rechercher un certificat</h1>
 
     <div>
-        <label>Entrer un numero du certificat : </label>
-        <input type="text" [(ngModel)]="this.codeCertificate">
+        <!-- <label>Entrer un numero du certificat : </label> -->
         <br/>
-        <button type="button" class="btn btn-primary" (click)="this.onClick()">Vérifier</button>
+        <input type="text" class="form-control" [(ngModel)]="this.codeCertificate" placeholder="Entrer la code du certificat">
+        <br/>
+        <div id="verify-button-container">
+            <button type="button" class="btn btn-primary" (click)="this.onClick()">Vérifier</button>
+        </div>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <list-certificat [listPerson]="this.listPersonnResult" (personSelectedEvent)="this.onPersonSelected($event)"></list-certificat>
+    <div class="result">
+        <div class="row">
+            <div class="col">
+                <certificat-detail [selectedPerson]="this.personSelected"></certificat-detail>
             </div>
         </div>
-        <div class="col">
-            <div class="row">
-                <certificat-detail [selectedPerson]="this.personSelected"></certificat-detail>
+        <div class="row">
+            <div class="col">
+                <list-certificat [listPerson]="this.listPersonnResult" (personSelectedEvent)="this.onPersonSelected($event)"></list-certificat>
             </div>
         </div>
     </div>

@@ -11,6 +11,7 @@ h1{
 .container {
     border: magenta 2px solid;
     width: 100%;
+    // padding: 30px;
 }
 
 list-certificat,
@@ -19,4 +20,12 @@ certificat-detail {
 }
 .componentName {
     background-color: magenta;
+}
+
+#verify-button-container {
+    text-align: center;
+}
+
+.result {
+    padding: 40px;
 }
