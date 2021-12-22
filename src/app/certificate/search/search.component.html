@@ -22,7 +22,7 @@
                 <certificat-detail [selectedPerson]="this.personSelected"></certificat-detail>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="this.listPersonnResult.length > 1">
             <div class="col">
                 <list-certificat [listPerson]="this.listPersonnResult" (personSelectedEvent)="this.onPersonSelected($event)"></list-certificat>
             </div>

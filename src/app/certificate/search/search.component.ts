@@ -23,9 +23,10 @@ export class SearchComponent implements OnInit {
 
   onClick(){
     this.listPersonnResult = this.search(this.codeCertificate);
+    if(this.listPersonnResult.length == 1) this.personSelected = this.listPersonnResult[0]
   }
 
-  search(codeCertificate: string = ""): Array<any> {
+  search(codeCertificate: string = ""): Array<Users> {
     const listPerson: Array<Users> = [];
 
     if(codeCertificate.length == 0) return listPerson;
