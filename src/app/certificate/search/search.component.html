@@ -2,26 +2,22 @@
 
 <div class="container">
 
-    Search Component 
+    <span class="componentName">Search Component </span>
     
     <h1>Rechercher un certificat</h1>
 
     <label>Entrer un numero du certificat : </label>
     <input type="text" [(ngModel)]="this.nomPersonSearch" (ngModelChange)="this.onClick()"/>
 
-    <!-- <div id="container" (click)="this.onClick()">
-        <cm-button></cm-button>
-    </div> -->
-
     <div class="row">
         <div class="col">
             <div class="row">
-                <list-certificat [listPerson]="this.listPersonnResult"></list-certificat>
+                <list-certificat [listPerson]="this.listPersonnResult" (personSelectedEvent)="this.onPersonSelected($event)"></list-certificat>
             </div>
         </div>
         <div class="col">
             <div class="row">
-                <certificat-detail></certificat-detail>
+                <certificat-detail [selectedPerson]="this.personSelected"></certificat-detail>
             </div>
         </div>
     </div>

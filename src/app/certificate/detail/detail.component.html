@@ -1,6 +1,23 @@
 <div class="container">
-    Detail Component
+    
+    <span class="componentName">Detail Component </span>
 
-    <p>detail works!</p>
+    <p>Detail person!</p>
 
+    <div *ngIf="this.selectedPerson; else elses">
+        <div>
+            <span>{{ this.selectedPerson.name | uppercase }}</span>
+            <br/>
+            <span> #{{ this.selectedPerson.id }}</span>
+            <br/>
+            <span> {{ this.selectedPerson.money | number : "3.0-2" : "en-US" }}</span>
+            <br/>
+            <img src="{{ this.selectedPerson.urlPhoto }}" width="300"/>
+        </div>
+    </div>
+    <ng-template #elses>
+        <div>
+            Veuillez selectionner
+        </div>
+    </ng-template>
 </div>
