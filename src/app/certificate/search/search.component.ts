@@ -8,12 +8,12 @@ import { listPersonWithImageJson } from './data.users';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  public nomPersonSearch: string;
+  public codeCertificate: string;
   public listPersonnResult: Array<Users>;
   public personSelected: Users|null;
 
   constructor() {
-    this.nomPersonSearch = "";
+    this.codeCertificate = "";
     this.listPersonnResult = [];
     this.personSelected = null
   }
@@ -22,22 +22,21 @@ export class SearchComponent implements OnInit {
   }
 
   onClick(){
-    this.listPersonnResult = this.search(this.nomPersonSearch);
+    this.listPersonnResult = this.search(this.codeCertificate);
   }
 
-  search(nom: string = ""): Array<any> {
+  search(codeCertificate: string = ""): Array<any> {
     const listPerson: Array<Users> = [];
 
-    if(nom.length == 0) return listPerson;
+    if(codeCertificate.length == 0) return listPerson;
 
-    // return listPersonWithImageJson.filter((item: any) => item.indexOf(nom) != -1 )
     listPersonWithImageJson.forEach((item: any) => {
-      if(item.author.indexOf(nom) != -1) {
+      if(item.codeCertificate.toString().indexOf(codeCertificate) != -1) {
         listPerson.push( new Users(
           item.id,
           item.author,
           item.download_url,
-          item.width
+          item.codeCertificate
         ) )
       }
     })

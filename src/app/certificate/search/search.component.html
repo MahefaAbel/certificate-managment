@@ -8,7 +8,9 @@
 
     <div>
         <label>Entrer un numero du certificat : </label>
-        <input type="text" [(ngModel)]="this.nomPersonSearch" (ngModelChange)="this.onClick()"/>
+        <input type="text" [(ngModel)]="this.codeCertificate">
+        <br/>
+        <button type="button" class="btn btn-primary" (click)="this.onClick()">Vérifier</button>
     </div>
 
     <div class="row">

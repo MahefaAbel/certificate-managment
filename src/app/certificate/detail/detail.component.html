@@ -10,9 +10,9 @@
             <br/>
             <span> #{{ this.selectedPerson.id }}</span>
             <br/>
-            <span> {{ this.selectedPerson.money | number : "3.0-2" : "en-US" }}</span>
+            <span> {{ this.selectedPerson.codeCertificate | number : "3.0-2" : "en-US" }}</span>
             <br/>
-            <img src="{{ this.selectedPerson.urlPhoto }}" width="300"/>
+            <img src="{{ this.selectedPerson.urlProfile }}" width="300"/>
             <br/>
             {{ this.textHtml.length > 0 ? this.textHtml : "(Chaine vide)" }} <br/>
             <span *ngIf="this.textHtml.length > 0; else elses"> {{ this.textHtml }}</span>

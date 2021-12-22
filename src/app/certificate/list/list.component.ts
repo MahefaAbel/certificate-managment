@@ -28,15 +28,15 @@ export class ListComponent implements OnInit {
     this.personSelectedEvent.emit(this.personSelected)
   }
 
-  // getColor(money: number): string {
-  //   if(money < 2000) return "red"
-  //   else if (money >= 2000 && money < 3000) return "yellow"
+  // getColor(codeCertificate: number): string {
+  //   if(codeCertificate < 2000) return "red"
+  //   else if (codeCertificate >= 2000 && codeCertificate < 3000) return "yellow"
   //   else return "green"
   // }
 
-  setClass(money: number): string {
-    if(money < 2000) return "mena"
-    else if (money >= 2000 && money < 3000) return "manga"
-    else return "mavomaintso"
-  }
+  // setClass(codeCertificate: string): string {
+  //   if(codeCertificate < 2000) return "mena"
+  //   else if (codeCertificate >= 2000 && codeCertificate < 3000) return "manga"
+  //   else return "mavomaintso"
+  // }
 }
