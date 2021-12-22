@@ -13,6 +13,14 @@
             <span> {{ this.selectedPerson.money | number : "3.0-2" : "en-US" }}</span>
             <br/>
             <img src="{{ this.selectedPerson.urlPhoto }}" width="300"/>
+            <br/>
+            {{ this.textHtml.length > 0 ? this.textHtml : "(Chaine vide)" }} <br/>
+            <span *ngIf="this.textHtml.length > 0; else elses"> {{ this.textHtml }}</span>
+            <ng-template #elses>
+                {{ "(Chaine vide)" }}
+                <span [innerText]="'(Chaine vide)'"></span>
+            </ng-template>
+            <span innerText></span>
         </div>
     </div>
     <ng-template #elses>

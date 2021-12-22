@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
     const listPerson: Array<Users> = [];
     // return listPersonWithImageJson.filter((item: any) => item.indexOf(nom) != -1 )
     listPersonWithImageJson.forEach((item: any) => {
-      if(item.author.indexOf(nom)) {
+      if(item.author.indexOf(nom) != -1) {
         listPerson.push( new Users(
           item.id,
           item.author,

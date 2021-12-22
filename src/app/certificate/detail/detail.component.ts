@@ -10,9 +10,13 @@ import { Users } from 'src/models/Users';
 export class DetailComponent implements OnInit {
   @Input()
   public selectedPerson: Users|null;
+  public textHtml: string;
+  // public condition = true;
 
   constructor() {
     this.selectedPerson = null
+    this.textHtml = "Lorem <strong>lupsum</strong>";
+    // this.textHtml = "";
   }
 
   ngOnInit(): void {

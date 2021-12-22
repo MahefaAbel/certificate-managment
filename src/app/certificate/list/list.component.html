@@ -1,13 +1,16 @@
 <div class="container">
-    <span class="componentName">List Component </span>
-    <ul class="">
+    <span class="componentName">List Component</span>
+    <ul>
         <li *ngFor="let item of this.listPerson" class="row" (click)="onClick(item)">
-            <span class="preview col"><img src="{{ item.urlPhoto }}" /></span>
-            <div class="secondColumn col">
-                <span class="author row"> {{ item.name }} </span>
-                <span class="url row"> {{ item.urlPhoto }} </span> 
-            </div>
-
+            <ng-template [ngIf]="true">
+                <span class="preview col">
+                    <!-- <img src="{{ item.urlPhoto }}" /> -->
+                </span>
+                <div class="secondColumn col">
+                    <span class="author row"> {{ item.name }} </span>
+                    <span class="url row"> {{ item.urlPhoto }} </span> 
+                </div>
+            </ng-template>
         </li>
     </ul>
 </div>

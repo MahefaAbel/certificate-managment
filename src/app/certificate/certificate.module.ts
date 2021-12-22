@@ -12,6 +12,7 @@ import { DetailComponent } from './detail/detail.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
+import { Copyright } from './footer/copyright.component';
 registerLocaleData(localeFr);
 registerLocaleData(localeEn);
 
@@ -21,7 +22,8 @@ registerLocaleData(localeEn);
     HeaderComponent,
     FooterComponent,
     ListComponent,
-    DetailComponent
+    DetailComponent,
+    Copyright
   ],
   imports: [
     CommonModule,
