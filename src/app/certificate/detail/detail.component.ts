@@ -1,5 +1,5 @@
 import { formatNumber } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Users } from 'src/models/Users';
 
 @Component({
@@ -12,6 +12,10 @@ export class DetailComponent implements OnInit {
   public selectedPerson: Users|null;
   public textHtml: string;
   // public condition = true;
+  @ViewChild("componentName") 
+  public componentNameViewChild!: ElementRef
+  @ViewChild("zayataonaofamadionysaiko") 
+  public zayataonaofamadionysaikoVC!: ElementRef
 
   constructor() {
     this.selectedPerson = null

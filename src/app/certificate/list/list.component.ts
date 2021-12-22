@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { of } from 'rxjs';
 import { Users } from 'src/models/Users';
 
 @Component({
@@ -21,6 +22,14 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const myObservable = of(1, 2, 3);
+    const myObserver = {
+      next: (x: number) => console.log('Observer got a next value: ' + x),
+      error: (err: Error) => console.error('Observer got an error: ' + err),
+      complete: () => console.log('Observer got a complete notification'),
+    };
+    myObservable.subscribe(myObserver);    
+    console.log(myObservable);
   }
 
   onClick(val: Users): void {

@@ -1,12 +1,12 @@
 <div class="container">
     
-    <span class="componentName">Detail Component </span>
+    <span class="componentName" #componentName>Detail Component </span>
 
     <p>Detail person!</p>
 
     <div *ngIf="this.selectedPerson; else elses">
         <div>
-            <span>{{ this.selectedPerson.name | uppercase }}</span>
+            <span class="name">{{ this.selectedPerson.name | uppercase }}</span>
             <br/>
             <span> #{{ this.selectedPerson.id }}</span>
             <br/>
@@ -28,4 +28,6 @@
             Veuillez selectionner
         </div>
     </ng-template>
+
+    <span #zayataonaofamadionysaiko>zay atao nao</span>
 </div>
