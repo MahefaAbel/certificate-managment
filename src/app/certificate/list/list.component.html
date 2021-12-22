@@ -1,19 +1,7 @@
 <div class="container">
     <span class="componentName">List Component</span>
-    <ul *ngIf="listPerson.length > 0; else msgErreur">
-        <li *ngFor="let item of this.listPerson; let i=index" class="row" (click)="onClick(item)" 
-        [ngClass]="i == 0 ? 'mavomaintso' : i == this.listPerson.length - 1 ? 'mavomaintso' : ''"
-        >
-        <!-- [ngClass]="this.setClass(item.codeCertificate)" -->
-        <!-- [ngStyle]="{'background-color': this.getColor(item.codeCertificate) }" -->
-            <span class="preview col">
-                    <!-- <img src="{{ item.urlProfile }}" /> -->
-            </span>
-            <div class="secondColumn col">
-                <span class="author row"> {{ item.name }} </span>
-                <span class="url row"> {{ item.urlProfile }} </span> 
-            </div>
-        </li>
+    <ul *ngIf="isListHasElement; else msgErreur">
+        <ng-content></ng-content>
     </ul>
 
     <ng-template #msgErreur>

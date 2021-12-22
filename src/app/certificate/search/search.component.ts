@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
     this.codeViewChild.nativeElement.innerHTML = this.codeCertificate;
     // this.detailCompentViewChild.componentNameViewChild.nativeElement.innerHTML = this.codeCertificate
     this.detailCompentViewChildren.toArray().forEach( (item: DetailComponent) => {
-        item.componentNameViewChild.nativeElement.innerHTML = this.codeCertificate
+        item.componentNameViewChild.nativeElement.innerHTML += this.codeCertificate
       }
     )
   }

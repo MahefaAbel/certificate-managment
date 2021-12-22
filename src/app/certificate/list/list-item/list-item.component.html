@@ -1,0 +1,16 @@
+<!-- (click)="onClick(item)"  -->
+<li 
+    class="row"
+    [ngClass]="index == 0 ? 'mavomaintso' : isLastItem ? 'mavomaintso' : ''"
+    >
+    <span class="componentName">List Item Component</span>
+    <!-- [ngClass]="this.setClass(item.codeCertificate)" -->
+    <!-- [ngStyle]="{'background-color': this.getColor(item.codeCertificate) }" -->
+        <span class="preview col">
+                <!-- <img src="{{ item.urlProfile }}" /> -->
+        </span>
+        <div class="secondColumn col">
+            <span class="author row"> {{ item.name }} </span>
+            <span class="url row"> {{ item.urlProfile }} </span> 
+        </div>
+</li>
