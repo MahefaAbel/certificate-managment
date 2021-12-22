@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
 import { Copyright } from './footer/copyright.component';
+import { ListItemComponent } from './list/list-item/list-item.component';
 registerLocaleData(localeFr);
 registerLocaleData(localeEn);
 
@@ -23,7 +24,8 @@ registerLocaleData(localeEn);
     FooterComponent,
     ListComponent,
     DetailComponent,
-    Copyright
+    Copyright,
+    ListItemComponent
   ],
   imports: [
     CommonModule,
