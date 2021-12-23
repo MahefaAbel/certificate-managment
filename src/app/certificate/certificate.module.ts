@@ -17,11 +17,13 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { LokoDirective } from 'src/SharedModule/directives/loko.directive';
 import { InputTestDirective } from 'src/SharedModule/directives/input-test.directive';
 import { PersonService } from 'src/SharedModule/services/person.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PigeonVoyagerService } from 'src/SharedModule/services/pigeon.service';
 import { RouterModule, ROUTES } from '@angular/router';
 import { routesCertificate } from './certificate-routing.module';
 import { MainCertificateComponent } from './certificate-main.component';
+import { PrintUserPipe } from 'src/SharedModule/pipes/users-utils.pipe';
+import { TokenInterceptor } from 'src/SharedModule/services/token.interceptor';
 
 registerLocaleData(localeFr);
 registerLocaleData(localeEn);
@@ -38,6 +40,7 @@ registerLocaleData(localeEn);
     LokoDirective,
     InputTestDirective,
     MainCertificateComponent,
+    PrintUserPipe
   ],
   imports: [
     CommonModule,
@@ -51,6 +54,10 @@ registerLocaleData(localeEn);
     {
       // provide: LOCALE_ID, useValue: "fr-FR",
       provide: LOCALE_ID, useValue: "en-US",
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useValue: TokenInterceptor
     },
     PersonService,
     PigeonVoyagerService

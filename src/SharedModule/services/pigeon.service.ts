@@ -29,4 +29,16 @@ export class PigeonVoyagerService {
     public getValueTest(): number {
         return this.dataTest.value
     }
+
+
+    public async getXFilm(): Promise<number> {
+        return new Promise((resolve, reject) => {
+            if("cava")
+                resolve(this.dataTest.value)
+            else 
+                reject({
+                    error: "oups"
+                })
+        })
+    }
 }

@@ -49,6 +49,10 @@
 
         <router-outlet></router-outlet>
 
+        <ng-container *ngIf="this.listPersonnResult.length > 0" >
+            {{ this.listPersonnResult[0] | printUser }}
+        </ng-container>
+
     </div>
 
 </div>

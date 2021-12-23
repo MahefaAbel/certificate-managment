@@ -31,13 +31,21 @@ export class DetailComponent implements OnInit, AfterViewInit, AfterContentInit 
     // })
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     console.log("ngOnInit", this.containerContentChild)
     this.pigeon.getDataTestBehavior().subscribe({
       next: (value: number) => {
         console.log("DetailComponent::ngOnInit", value)
       }
     })
+
+    this.pigeon.getXFilm().then(valeur => {
+      console.log(valeur)
+    }).catch(err => {
+      console.error(err)
+    })
+
+    const result = await this.pigeon.getXFilm()
   }
   
   ngAfterViewInit(): void {
