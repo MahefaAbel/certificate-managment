@@ -19,6 +19,9 @@ import { InputTestDirective } from 'src/SharedModule/directives/input-test.direc
 import { PersonService } from 'src/SharedModule/services/person.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PigeonVoyagerService } from 'src/SharedModule/services/pigeon.service';
+import { RouterModule } from '@angular/router';
+import { routesCertificate } from './certificate-routing.module';
+import { MainCertificateComponent } from './certificate-main.component';
 
 registerLocaleData(localeFr);
 registerLocaleData(localeEn);
@@ -34,6 +37,7 @@ registerLocaleData(localeEn);
     ListItemComponent,
     LokoDirective,
     InputTestDirective,
+    MainCertificateComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +45,7 @@ registerLocaleData(localeEn);
     SharedModule,
     FormsModule,
     HttpClientModule,
+    RouterModule.forRoot(routesCertificate),
   ],
   providers: [
     {
@@ -50,6 +55,9 @@ registerLocaleData(localeEn);
     PersonService,
     PigeonVoyagerService
   ],
-  bootstrap: [SearchComponent]
+  bootstrap: [ MainCertificateComponent ],
+  exports: [
+    RouterModule
+  ]
 })
 export class CertificateModule { }
