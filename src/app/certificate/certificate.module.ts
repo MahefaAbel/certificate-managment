@@ -14,6 +14,8 @@ import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
 import { Copyright } from './footer/copyright.component';
 import { ListItemComponent } from './list/list-item/list-item.component';
+import { LokoDirective } from 'src/SharedModule/directives/loko.directive';
+import { InputTestDirective } from 'src/SharedModule/directives/input-test.directive';
 registerLocaleData(localeFr);
 registerLocaleData(localeEn);
 
@@ -25,7 +27,9 @@ registerLocaleData(localeEn);
     ListComponent,
     DetailComponent,
     Copyright,
-    ListItemComponent
+    ListItemComponent,
+    LokoDirective,
+    InputTestDirective,
   ],
   imports: [
     CommonModule,

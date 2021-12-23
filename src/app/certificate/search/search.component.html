@@ -9,7 +9,12 @@
     <div>
         <!-- <label>Entrer un numero du certificat : </label> -->
         <br/>
-        <input type="text" class="form-control" [(ngModel)]="this.codeCertificate" placeholder="Entrer la code du certificat">
+        <input type="text" 
+            class="form-control" 
+            [(ngModel)]="this.codeCertificate" 
+            placeholder="Entrer la code du certificat"
+            inputChangeComportement
+        >
         <br/>
         <div id="verify-button-container">
             <button type="button" class="btn btn-primary" (click)="this.onClick()">Vérifier</button>
