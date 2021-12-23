@@ -20,7 +20,9 @@
         <h2>Resultat du <span #code></span></h2>
         <div class="row">
             <div class="col">
-                <certificat-detail [selectedPerson]="this.personSelected"></certificat-detail>
+                <certificat-detail 
+                    [selectedPerson]="this.personSelected"
+                ></certificat-detail>
             </div>
         </div>
         <div class="row" *ngIf="this.listPersonnResult.length > 1">
