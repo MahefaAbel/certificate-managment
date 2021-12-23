@@ -25,7 +25,10 @@
         </div>
         <div class="row" *ngIf="this.listPersonnResult.length > 1">
             <div class="col">
-                <list-certificat [isListHasElement]="this.listPersonnResult.length > 0">
+                <list-certificat 
+                    [isListHasElement]="this.listPersonnResult.length > 0"
+                    [inputTest]="'azerty'"
+                >
                     <list-item  
                         *ngFor="let item of this.listPersonnResult; let i=index" 
                         (click)="this.personSelected = item"
