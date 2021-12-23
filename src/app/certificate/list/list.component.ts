@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
   ) {
     this.personSelected = null;
     console.log("constructor", this.inputTest);
-    setInterval(() => this.pigeon.setDataTest(Math.random()), 1000)
+    // setInterval(() => this.pigeon.setDataTest(Math.random()), 1000)
   }
 
   ngOnInit(): void {

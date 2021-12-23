@@ -28,7 +28,7 @@ export class LokoDirective implements OnInit {
 
     @HostListener("window:click", ["$event.target"])
     onMouseClick(event: ElementRef){
-        console.log("onMouseClick", this.element.nativeElement, event)
+        // console.log("onMouseClick", this.element.nativeElement, event)
         if(this.element.nativeElement != event){
             this.element.nativeElement.style.display = "none"
         }

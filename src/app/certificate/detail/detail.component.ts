@@ -24,11 +24,11 @@ export class DetailComponent implements OnInit, AfterViewInit, AfterContentInit 
     public pigeon: PigeonVoyagerService
   ) {
     this.textHtml = "Lorem <strong>lupsum</strong>";
-    this.pigeon.getDataTestObservable().subscribe({
-      next: (value: number) => {
-        console.log("DetailComponent::constructor", value)
-      }
-    })
+    // this.pigeon.getDataTestObservable().subscribe({
+    //   next: (value: number) => {
+    //     console.log("DetailComponent::constructor", value)
+    //   }
+    // })
   }
 
   ngOnInit(): void {
