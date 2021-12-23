@@ -11,7 +11,7 @@ import { listPersonWithImageJson } from './data.users';
 export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   public codeCertificate: string;
   public listPersonnResult: Array<Users>;
-  public personSelected: Users|null;
+  public personSelected!: Users|null;
   @ViewChild("code") 
   public codeViewChild!: ElementRef
   @ViewChild(DetailComponent) 
@@ -22,7 +22,6 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor() {
     this.codeCertificate = "";
     this.listPersonnResult = [];
-    this.personSelected = null
     console.log("constructor", this.detailCompentViewChild)
   }
   ngOnInit(): void {

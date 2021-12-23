@@ -9,7 +9,7 @@ import { Users } from 'src/models/Users';
 })
 export class DetailComponent implements OnInit, AfterViewInit, AfterContentInit {
   @Input()
-  public selectedPerson: Users|null;
+  public selectedPerson!: Users|null;
   public textHtml: string;
   // public condition = true;
   @ViewChild("componentName") 
@@ -20,7 +20,6 @@ export class DetailComponent implements OnInit, AfterViewInit, AfterContentInit 
   public containerContentChild!: ElementRef;
 
   constructor() {
-    this.selectedPerson = null
     this.textHtml = "Lorem <strong>lupsum</strong>";
     // this.textHtml = "";
   }
