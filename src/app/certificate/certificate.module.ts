@@ -19,7 +19,7 @@ import { InputTestDirective } from 'src/SharedModule/directives/input-test.direc
 import { PersonService } from 'src/SharedModule/services/person.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PigeonVoyagerService } from 'src/SharedModule/services/pigeon.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ROUTES } from '@angular/router';
 import { routesCertificate } from './certificate-routing.module';
 import { MainCertificateComponent } from './certificate-main.component';
 

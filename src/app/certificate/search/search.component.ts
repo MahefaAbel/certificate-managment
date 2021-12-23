@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Injectable, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { Users } from 'src/models/Users';
 import { PersonService } from 'src/SharedModule/services/person.service';
 import { DetailComponent } from '../detail/detail.component';
@@ -21,7 +22,8 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   public listPersonWithImageJson: any[] = [];
 
   constructor(
-    private personService: PersonService
+    private personService: PersonService,
+    private router: Router
   ) {
     this.codeCertificate = "";
     this.listPersonnResult = [];
@@ -47,11 +49,13 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log("listPersonnResult: ", this.listPersonnResult)
       if(this.listPersonnResult.length == 1) this.personSelected = this.listPersonnResult[0]
       this.codeViewChild.nativeElement.innerHTML = this.codeCertificate;
-      this.detailCompentViewChild.componentNameViewChild.nativeElement.innerHTML = this.codeCertificate
+      // this.detailCompentViewChild.componentNameViewChild.nativeElement.innerHTML = this.codeCertificate
       // this.detailCompentViewChildren.toArray().forEach( (item: DetailComponent) => {
       //     item.componentNameViewChild.nativeElement.innerHTML += this.codeCertificate
       //   }
       // )
+
+      this.router.navigate(['/certificate/detail'])
     })
   }
 
