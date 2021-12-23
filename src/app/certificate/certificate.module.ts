@@ -18,6 +18,7 @@ import { LokoDirective } from 'src/SharedModule/directives/loko.directive';
 import { InputTestDirective } from 'src/SharedModule/directives/input-test.directive';
 import { PersonService } from 'src/SharedModule/services/person.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PigeonVoyagerService } from 'src/SharedModule/services/pigeon.service';
 
 registerLocaleData(localeFr);
 registerLocaleData(localeEn);
@@ -47,6 +48,7 @@ registerLocaleData(localeEn);
       provide: LOCALE_ID, useValue: "en-US",
     },
     PersonService,
+    PigeonVoyagerService
   ],
   bootstrap: [SearchComponent]
 })

@@ -1,6 +1,7 @@
 import { formatNumber } from '@angular/common';
-import { AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, HostListener, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Users } from 'src/models/Users';
+import { PigeonVoyagerService } from 'src/SharedModule/services/pigeon.service';
 
 @Component({
   selector: 'certificat-detail',
@@ -19,17 +20,33 @@ export class DetailComponent implements OnInit, AfterViewInit, AfterContentInit 
   @ContentChild("container")
   public containerContentChild!: ElementRef;
 
-  constructor() {
+  constructor(
+    public pigeon: PigeonVoyagerService
+  ) {
     this.textHtml = "Lorem <strong>lupsum</strong>";
-    // this.textHtml = "";
+    this.pigeon.getDataTestObservable().subscribe({
+      next: (value: number) => {
+        console.log("DetailComponent::constructor", value)
+      }
+    })
   }
 
   ngOnInit(): void {
     console.log("ngOnInit", this.containerContentChild)
+    this.pigeon.getDataTestBehavior().subscribe({
+      next: (value: number) => {
+        console.log("DetailComponent::ngOnInit", value)
+      }
+    })
   }
   
   ngAfterViewInit(): void {
     console.log("ngAfterViewInit", this.containerContentChild)
+    this.pigeon.getDataTestBehavior().subscribe({
+      next: (value: number) => {
+        console.log("DetailComponent::ngAfterViewInit", value)
+      }
+    })
   }
   
   ngAfterContentInit(): void {

@@ -1,4 +1,4 @@
-<div class="container" #container (click)="this.click()">
+<div class="container" #container>
     <span class="componentName">List Component</span>
     <ul *ngIf="isListHasElement; else msgErreur" >
         <ng-content></ng-content>

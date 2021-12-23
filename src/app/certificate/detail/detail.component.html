@@ -2,36 +2,31 @@
     
     <span class="componentName" #componentName>Detail Component </span>
 
-    <p>Detail person!</p>
+    <p>Detail person! {{ this.pigeon.getValueTest() }}</p>
 
-    <ng-container *ngIf="this.selectedPerson != null">
-        {{ this.selectedPerson.id }}
-        <ng-container [ngSwitch]="this.selectedPerson.id">
-            <ng-container *ngSwitchCase="0">
-                <div >
-                    <span class="name">{{ this.selectedPerson.name | uppercase }}</span>
-                    <br/>
-                    <span> #{{ this.selectedPerson.id }}</span>
-                    <br/>
-                        <span> {{ this.selectedPerson.codeCertificate | number : "3.0-2" : "en-US" }}</span>
-                    <br/>
-                    <img src="{{ this.selectedPerson.urlProfile }}" width="300"/>
-                    <br/>
-                    {{ this.textHtml.length > 0 ? this.textHtml : "(Chaine vide)" }} <br/>
-                    <span *ngIf="this.textHtml.length > 0; else elses"> {{ this.textHtml }}</span>
-                    <ng-template #elses>
-                        {{ "(Chaine vide)" }}
-                        <span [innerText]="'(Chaine vide)'"></span>
-                    </ng-template>
-                    <span innerText></span>
-                </div>
-            </ng-container>
-            <ng-container *ngSwitchDefault>
-                <div>
-                    Veuillez selectionner
-                </div>
-            </ng-container>
-        </ng-container>
+    <ng-container >
+        <div *ngIf="this.selectedPerson != null; else elses">
+            <span class="name">{{ this.selectedPerson.name | uppercase }}</span>
+            <br/>
+            <span> #{{ this.selectedPerson.id }}</span>
+            <br/>
+                <span> {{ this.selectedPerson.codeCertificate | number : "3.0-2" : "en-US" }}</span>
+            <br/>
+            <img src="{{ this.selectedPerson.urlProfile }}" width="300"/>
+            <br/>
+            {{ this.textHtml.length > 0 ? this.textHtml : "(Chaine vide)" }} <br/>
+            <span *ngIf="this.textHtml.length > 0; else elses"> {{ this.textHtml }}</span>
+            <ng-template #elses>
+                {{ "(Chaine vide)" }}
+                <span [innerText]="'(Chaine vide)'"></span>
+            </ng-template>
+            <span innerText></span>
+        </div>
+        <ng-template #elses>
+            <div>
+                Veuillez selectionner
+            </div>
+        </ng-template>
     </ng-container>
 
     <span #zayataonaofamadionysaiko [lokona]="'#f041b0'">zay atao nao</span>
