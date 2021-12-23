@@ -19,7 +19,7 @@ export class InputTestDirective {
                 element.nativeElement.disabled = true
                 element.nativeElement.style.backgroundColor = this.randomRgb()
             }
-        }, 1000)
+        }, 30000)
     }
 
     private randomRgb(): string {

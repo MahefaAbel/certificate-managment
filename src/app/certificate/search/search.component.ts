@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Injectable, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { Users } from 'src/models/Users';
+import { PersonService } from 'src/SharedModule/services/person.service';
 import { DetailComponent } from '../detail/detail.component';
-import { listPersonWithImageJson } from './data.users';
 
 @Component({
   selector: 'app-search',
@@ -18,12 +18,16 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   public detailCompentViewChild!: DetailComponent
   // @ViewChildren(DetailComponent) 
   // public detailCompentViewChildren!: QueryList<DetailComponent>
+  public listPersonWithImageJson: any[] = [];
 
-  constructor() {
+  constructor(
+    private personService: PersonService
+  ) {
     this.codeCertificate = "";
     this.listPersonnResult = [];
     console.log("constructor", this.detailCompentViewChild)
   }
+
   ngOnInit(): void {
     console.log("ngOnInit", this.detailCompentViewChild)
   }
@@ -35,14 +39,20 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onClick(){
-    this.listPersonnResult = this.search(this.codeCertificate);
-    if(this.listPersonnResult.length == 1) this.personSelected = this.listPersonnResult[0]
-    this.codeViewChild.nativeElement.innerHTML = this.codeCertificate;
-    this.detailCompentViewChild.componentNameViewChild.nativeElement.innerHTML = this.codeCertificate
-    // this.detailCompentViewChildren.toArray().forEach( (item: DetailComponent) => {
-    //     item.componentNameViewChild.nativeElement.innerHTML += this.codeCertificate
-    //   }
-    // )
+    this.personService.getAll().then(listUser => {
+      console.log("SearchComponent::result: ", listUser)
+      this.listPersonWithImageJson = listUser
+
+      this.listPersonnResult = this.search(this.codeCertificate);
+      console.log("listPersonnResult: ", this.listPersonnResult)
+      if(this.listPersonnResult.length == 1) this.personSelected = this.listPersonnResult[0]
+      this.codeViewChild.nativeElement.innerHTML = this.codeCertificate;
+      this.detailCompentViewChild.componentNameViewChild.nativeElement.innerHTML = this.codeCertificate
+      // this.detailCompentViewChildren.toArray().forEach( (item: DetailComponent) => {
+      //     item.componentNameViewChild.nativeElement.innerHTML += this.codeCertificate
+      //   }
+      // )
+    })
   }
 
   search(codeCertificate: string = ""): Array<Users> {
@@ -54,13 +64,14 @@ export class SearchComponent implements OnInit, AfterViewInit, OnDestroy {
       return listPerson;
     }
 
-    listPersonWithImageJson.forEach((item: any) => {
-      if(item.codeCertificate.toString().indexOf(codeCertificate) != -1) {
+    this.listPersonWithImageJson.forEach((item: any) => {
+      // if(item.codeCertificate.toString().indexOf(codeCertificate) != -1) {
+      if(item.author.toString().indexOf(codeCertificate) != -1) {
         listPerson.push( new Users(
           item.id,
           item.author,
           item.download_url,
-          item.codeCertificate
+          // item.codeCertificate
         ) )
       }
     })

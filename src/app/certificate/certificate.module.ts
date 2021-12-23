@@ -16,6 +16,9 @@ import { Copyright } from './footer/copyright.component';
 import { ListItemComponent } from './list/list-item/list-item.component';
 import { LokoDirective } from 'src/SharedModule/directives/loko.directive';
 import { InputTestDirective } from 'src/SharedModule/directives/input-test.directive';
+import { PersonService } from 'src/SharedModule/services/person.service';
+import { HttpClientModule } from '@angular/common/http';
+
 registerLocaleData(localeFr);
 registerLocaleData(localeEn);
 
@@ -36,12 +39,14 @@ registerLocaleData(localeEn);
     BrowserModule,
     SharedModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [
     {
       // provide: LOCALE_ID, useValue: "fr-FR",
       provide: LOCALE_ID, useValue: "en-US",
-    }
+    },
+    PersonService,
   ],
   bootstrap: [SearchComponent]
 })

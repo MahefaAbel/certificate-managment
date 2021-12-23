@@ -6,8 +6,8 @@
 
     <ng-container *ngIf="this.selectedPerson != null">
         {{ this.selectedPerson.id }}
-        <ng-container *ngSwitch="this.selectedPerson.id">
-            <ng-container [ngSwitchCase]="1022">
+        <ng-container [ngSwitch]="this.selectedPerson.id">
+            <ng-container *ngSwitchCase="0">
                 <div >
                     <span class="name">{{ this.selectedPerson.name | uppercase }}</span>
                     <br/>
